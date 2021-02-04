@@ -1,0 +1,50 @@
+<%- include("partials/header"); -%>
+
+
+<div class="all-components">
+    <img src="/images/weathersvg.svg" class="main-svg"></img>
+    <nav class="card-container ">
+        <form class="d-flex" method="POST" action="/">
+            <input class="form-control me-2" name="cityName" type="search" placeholder="city" aria-label="Search">
+            <button class="btn btn-dark ms-2" type="submit">Search</button>
+        </form>
+        <div class="container" id="temp-result">
+            <div class="city-info">
+                <img src="/images/location2.svg" class="location-logo" alt="">
+                <p class="card-city"><%=city %></p>
+            </div>
+            <h1 class="card-temp"><%= temperature %> &deg<%= unit %></h1>
+            <div class="weather-main">
+                <% if(id<300 && id>=200){        %>
+                    <h1 class="weather-name">thunder storm</h1>
+                    <img src="/images/thunder.svg" class="weather-svg">
+                <% }else if(id>=300 && id<400) {%>
+                    <h1 class="weather-name"> drizzle</h1>
+                    <img src="/images/drizzle.svg" class="weather-svg">
+                <% }else if(id>=500 && id<600) {%>
+                    <h1 class="weather-name">Rain</h1>
+                    <img src="/images/rain.svg" class="weather-svg">
+                <% }else if(id>=600 && id<700) {%>
+                    <h1 class="weather-name">Snow</h1>
+                    <img src="/images/snow.svg" class="weather-svg">
+                <% }else if(id>=700 && id<=800) {%>
+                    <h1 class="weather-name">Clear</h1>
+                     <% if(time<=18){ %>
+                        <img src="/images/sunny.svg" class="weather-svg">
+                    <%  }else{  %>
+                        <img src="/images/night-clear.svg" class="weather-svg">
+                    <% } %>
+                <% }else if(id>800 && id<900) {%>
+                    <h1 class="weather-name">Clouds</h1>
+                    <img src="/images/clouds1.svg" class="weather-svg">
+                <% }    %>
+
+            </div>
+        </div>
+        <nav class="img">
+        </nav>
+    </nav>
+</div>
+
+
+<%- include("partials/footer"); -%>
